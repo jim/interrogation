@@ -1,0 +1,22 @@
+Interrogation
+=============
+
+This is a little hack I came up with today when I got tired of duplicating logic in scopes and accessor methods. If I define a method in a model like this:
+
+class Submarine < ActiveRecord::Base
+
+  named_scope :on_surface, :conditions => {:location => 'surface'}
+  named_scope :submerged, :conditions => {:location => 'under water'}
+end
+
+I should be able to interrogate the model like this without needing to define Submarine#surface?:
+
+sub = Submarine.first => #<Submarine id: 1, location: 'surface'>
+sub.on_surface? => true
+sub.submerged? => false
+
+WARNING
+
+This hits the database with each call. I'm working on dealing with the simpler forms of conditions in ruby, and falling back to the db for complex cases.
+
+Copyright (c) 2009 Jim Benton, released under the MIT license
