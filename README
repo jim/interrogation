@@ -8,7 +8,7 @@ class Submarine < ActiveRecord::Base
   named_scope :submerged, :conditions => {:location => 'under water'}
 end
 
-I should be able to interrogate the model like this without needing to define Submarine#surface?:
+I should be able to interrogate the model like this without needing to define Submarine#on_surface? or Submarine#submerged?:
 
 sub = Submarine.first => #<Submarine id: 1, location: 'surface'>
 sub.on_surface? => true
