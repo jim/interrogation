@@ -4,7 +4,6 @@ Interrogation
 This is a little hack I came up with today when I got tired of duplicating logic in scopes and accessor methods. If I define a method in a model like this:
 
 class Submarine < ActiveRecord::Base
-
   named_scope :on_surface, :conditions => {:location => 'surface'}
   named_scope :submerged, :conditions => {:location => 'under water'}
 end
