@@ -21,7 +21,7 @@ module Interrogation
       conditions = self.class.send(scope, *args).proxy_options[:conditions]
       return match_against_database(scope, *args) unless conditions.is_a?(Hash)
     
-      conditions.map do |attr, value|
+      conditions.each do |attr, value|
         raise Interrogation::AttributeNotFound.new("could not find attribute '#{attr}'") unless @attributes.has_key?(attr.to_s)
         case value
         when String, Fixnum, nil
