@@ -40,4 +40,12 @@ class InterrogationTest < ActiveSupport::TestCase
     
   end
   
+  test "invalid attribute parsing" do
+    
+    assert_raises Interrogation::AttributeNotFound do
+      @spoon.salty?
+    end
+    
+  end
+  
 end

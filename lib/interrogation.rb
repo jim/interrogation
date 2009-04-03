@@ -22,7 +22,7 @@ module Interrogation
       return match_against_database(scope, *args) unless conditions.is_a?(Hash)
     
       conditions.map do |attr, value|
-        raise Interrogation::AttributeNotFound.new("count not find attribute '#{attr}'") unless @attributes.has_key?(attr.to_s)
+        raise Interrogation::AttributeNotFound.new("could not find attribute '#{attr}'") unless @attributes.has_key?(attr.to_s)
         case value
         when String, Fixnum, nil
           return false unless self.read_attribute(attr) == value
