@@ -13,14 +13,14 @@ I should be able to interrogate the model like this without needing to define Su
   sub.on_surface? => true
   sub.submerged? => false
 
+== How this works
+
+This version contains a preliminary attempt at parsing simple conditions against a model's attributes, with a fallback to the database for complicated conditions.
+
 == WARNING
 
 The big problem here is that an object's state is not always in sync with the database. I've thought about this a lot, and at this point I think it's best to raise an exception when using these methods on dirty objects. I think handling dirty objects is beyond the scope of this little hack.
 
-Also, obviously, this hits the database with each call. YMMV.
-
 == Possible future plans
-
-Determining the state of an object by parsing conditions from the scope definition and checking these against the current model attributes.
 
 Copyright (c) 2009 Jim Benton, released under the MIT license
