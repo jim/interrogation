@@ -7,9 +7,9 @@ class InterrogationTest < ActiveSupport::TestCase
   end
   
   test "method definition" do
-    assert @spoon.methods.include?('in_scope?')
-    assert @spoon.methods.include?('clean?')
-    assert @spoon.methods.include?('soupy?')
+    assert_true @spoon.methods.include?('in_scope?')
+    assert_true @spoon.methods.include?('clean?')
+    assert_true @spoon.methods.include?('soupy?')
   end
   
   test "dirty object detection" do
@@ -24,20 +24,18 @@ class InterrogationTest < ActiveSupport::TestCase
   
   test "interrogation methods" do
     soupy_spoon = Spoon.soupy.create!
-    assert soupy_spoon.soupy?
+    assert_true soupy_spoon.soupy?
     assert_false soupy_spoon.clean?
         
     clean_spoon = Spoon.create!
-    assert clean_spoon.clean?
+    assert_true clean_spoon.clean?
     assert_false clean_spoon.soupy?
     
   end
   
   test "range condition parsing" do
-    
     big_spoon = Spoon.create!(:size => 20)
     assert_false big_spoon.bite_size?
-    
   end
   
   test "invalid attribute parsing" do

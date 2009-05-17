@@ -1,17 +1,15 @@
 module Interrogation
   
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
   
   def self.included(base)
     base.send(:include, InstanceMethods)
   end
 
   # Raised when an interrogation method is called on a dirty object
-  class DirtyRecordError < StandardError
-  end
+  class DirtyRecordError < StandardError; end
   
-  class AttributeNotFound < StandardError
-  end
+  class AttributeNotFound < StandardError; end
   
   module InstanceMethods
     
