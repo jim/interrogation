@@ -28,4 +28,5 @@ class Spoon < ActiveRecord::Base
   named_scope :bite_size, :conditions => {:size => 1..5}
 
   named_scope :salty, :conditions => {:flavor => 'salty'}
+  named_scope :crazy, :conditions => ["contents = ?", 'crazy']
 end

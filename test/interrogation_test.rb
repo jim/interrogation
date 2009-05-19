@@ -38,12 +38,15 @@ class InterrogationTest < ActiveSupport::TestCase
     assert_false big_spoon.bite_size?
   end
   
+  test "database fallback" do
+    crazy_spoon = Spoon.create(:contents => 'crazy')
+    assert_true crazy_spoon.crazy?
+  end
+  
   test "invalid attribute parsing" do
-    
     assert_raises Interrogation::AttributeNotFound do
       @spoon.salty?
     end
-    
   end
   
 end
