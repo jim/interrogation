@@ -15,12 +15,10 @@ I should be able to interrogate the model like this without needing to define Su
 
 == How this works
 
-This version contains a preliminary attempt at parsing simple conditions against a model's attributes, with a fallback to the database for complicated conditions.
+This version contains a preliminary attempt at parsing simple conditions against a model's attributes, with a fallback to the database for complicated conditions. Which means that some methods will hit your database on each call. Something to be aware of.
 
 == WARNING
 
 The big problem here is that an object's state is not always in sync with the database. I've thought about this a lot, and at this point I think it's best to raise an exception when using these methods on dirty objects. I think handling dirty objects is beyond the scope of this little hack.
-
-== Possible future plans
 
 Copyright (c) 2009 Jim Benton, released under the MIT license
